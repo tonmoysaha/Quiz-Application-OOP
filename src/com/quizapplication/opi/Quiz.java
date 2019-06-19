@@ -12,16 +12,20 @@ public class Quiz {
 		Question question1 = new Question("What is the use of final keyword in Java?",
 				"a class is made final, a sublcass of it can not be created.",
 				"When a method is final, it can not be overridden.",
-				"When a variable is final, it can be assigned value only once.", "All of the above",
+				"When a variable is final, it can be assigned value only once."
+				, "All of the above",
 				new Answer("All of the above"));
 		Question question2 = new Question("To prevent any method from overriding, we declare the method as,", "final",
-				"static", "const", "abstract", new Answer("final"));
+				"static", "const", "abstract", 
+				new Answer("final"));
 		Question question3 = new Question("The fields in an interface are implicitly specified as,", "static only",
-				"protected", "private", "both static and final ", new Answer("both static and final "));
+				"protected", "private", "both static and final ",
+				new Answer("both static and final "));
 
 		Question questions[] = { question1, question2, question3 };
 
 		for (Question question : questions) {
+			System.out.println("Q:" + question.getQuestion());
 			System.out.println("A." + question.getOption1());
 			System.out.println("B." + question.getOption2());
 			System.out.println("C." + question.getOption3());
@@ -50,7 +54,7 @@ public class Quiz {
 				break;
 			}
 
-			if (answer.equals(question.getAnswer())) {
+			if (answer.equals(question.getAnswer().getAnswer())) {
 				System.out.println("---------------------------------");
 				System.out.println("Correct answer");
 				System.out.println("---------------------------------");
@@ -64,6 +68,8 @@ public class Quiz {
 			System.out.println("==================opi===================");
 			countTotall++;
 		}
+		Result_I result = new Result(countCorrect, countTotall, countWrong);
+		result.showResult();
 
 	}
 
